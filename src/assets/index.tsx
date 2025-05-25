@@ -11,7 +11,7 @@ import Navigate_before from '@/assets/icons/navigate_before.svg?react';
 import Hamburger from '@/assets/icons/Hamburger.svg?react';
 import Settings from '@/assets/icons/settings.svg?react';
 import GITLOG from '@/assets/icons/GITLOG.svg?react';
-import Kakao from '@/assets/icons/KaKaoLogo.svg?react';
+import Kakao from '@/assets/icons/KakaoLogo.svg?react';
 import Profile from '@/assets/icons/profile.svg?react';
 import Left from '@/assets/icons/Left.svg?react';
 import Right from '@/assets/icons/Right.svg?react';
