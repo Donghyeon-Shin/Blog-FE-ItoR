@@ -13,8 +13,8 @@ import Settings from '@/assets/icons/settings.svg?react';
 import GITLOG from '@/assets/icons/GITLOG.svg?react';
 import Kakao from '@/assets/icons/KakaoLogo.svg?react';
 import Profile from '@/assets/icons/profile.svg?react';
-import Left from '@/assets/icons/Left.svg?react';
-import Right from '@/assets/icons/Right.svg?react';
+import Left from '@/assets/icons/left.svg?react';
+import Right from '@/assets/icons/right.svg?react';
 import ProfilePlus from '@/assets/icons/profilePlus.svg?react';
 import Delete_icon from '@/assets/icons/delete_speech_bubble.svg?react';
 
