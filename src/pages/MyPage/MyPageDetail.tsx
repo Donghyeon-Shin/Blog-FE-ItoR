@@ -132,7 +132,7 @@ const MyPageDetail = () => {
   }, [isModify]);
 
   const onSubmit = async (data: z.infer<typeof signUpEmailSchema> | z.infer<typeof signUpSocialSchema>) => {
-    let presignedImage: string = "";
+    let presignedImage: string | null = null;
 
     if (profileImageFile) {
       try {
@@ -142,9 +142,9 @@ const MyPageDetail = () => {
           return;
         }
 
-        console.log("presignedUrl:", presignedUrl.data);
-        console.log("profileImageFile:", profileImageFile);
-        console.log("Content-Type:", profileImageFile?.type);
+        // console.log("presignedUrl:", presignedUrl.data);
+        // console.log("profileImageFile:", profileImageFile);
+        // console.log("Content-Type:", profileImageFile?.type);
 
         await uploadImage(profileImageFile, presignedUrl.data);
 
@@ -170,10 +170,12 @@ const MyPageDetail = () => {
         return;
       }
 
-      response = await UserUpdateProfilePicture(presignedImage);
-      if (response.error) {
-        showToast(response.message, "error");
-        return;
+      if (presignedImage) {
+        response = await UserUpdateProfilePicture(presignedImage);
+        if (response.error) {
+          showToast(response.message, "error");
+          return;
+        }
       }
 
     } else {
@@ -184,10 +186,12 @@ const MyPageDetail = () => {
         return;
       }
 
-      response = await UserUpdateProfilePicture(presignedImage);
-      if (response.error) {
-        showToast(response.message, "error");
-        return;
+      if (presignedImage) {
+        response = await UserUpdateProfilePicture(presignedImage);
+        if (response.error) {
+          showToast(response.message, "error");
+          return;
+        }
       }
 
     }
@@ -195,7 +199,9 @@ const MyPageDetail = () => {
     showToast("유저 정보 수정에 성공했습니다.", "success");
 
     localStorage.setItem("nickName", data.nickname);
-    localStorage.setItem("profilePicture", presignedImage);
+    if (presignedImage) {
+      localStorage.setItem("profilePicture", presignedImage);
+    }
 
     setTimeout(() => {
       navigate("/", { replace: true });
